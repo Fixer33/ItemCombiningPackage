@@ -16,13 +16,13 @@ namespace ItemCombining.Editor.WindowElements
         public ScrollViewCombinableRecord(ICombinable obj,
             Action<ICombinable> usagesClicked, Action<ICombinable> deleteClicked)
         {
-            var visualTree = Resources.Load<VisualTreeAsset>("ScrollViewCombinableRecord");
+            var visualTree = EditorUtility.LoadAsset<VisualTreeAsset>("Markup/ScrollViewCombinableRecord.uxml");
             if (visualTree != null)
             {
                 visualTree.CloneTree(this);
             }
             
-            var styleSheet = Resources.Load<StyleSheet>("ScrollViewCombinableRecord");
+            var styleSheet = EditorUtility.LoadAsset<StyleSheet>("Styles/ScrollViewCombinableRecord.uss");
             if (styleSheet != null)
             {
                 this.styleSheets.Add(styleSheet);
@@ -35,7 +35,7 @@ namespace ItemCombining.Editor.WindowElements
 
             nameLabel.text = obj.ScriptableObject.name;
             iconHolder.style.backgroundImage = obj.Editor_Icon != null ? obj.Editor_Icon :
-                AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Plugins/Fixer33/ItemCombining/Editor/Textures/ic_default_item.png");
+                EditorUtility.LoadAsset<Texture2D>("Textures/ic_default_item.png");
 
             showUsages.clicked += () => usagesClicked?.Invoke(obj);
             deleteButton.clicked += () => deleteClicked?.Invoke(obj);

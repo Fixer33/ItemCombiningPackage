@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,11 +25,11 @@ namespace ItemCombining.Editor.WindowElements
             Button removeBtn = this.Q<Button>("combinable-grid-btn__remove-btn");
             removeBtn.clicked += onRemovePress;
 
-            _replaceIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Plugins/Fixer33/ItemCombining/Editor/Textures/ic_replace.png");
+            _replaceIcon = EditorUtility.LoadAsset<Texture2D>("Textures/ic_replace.png");
             SetImage(GetImage());
         }
 
-        protected override VisualTreeAsset GetTemplateScheme() => Resources.Load<VisualTreeAsset>("CombinableGridButton");
+        protected override VisualTreeAsset GetTemplateScheme() => EditorUtility.LoadAsset<VisualTreeAsset>("Markup/CombinableGridButton.uxml");
 
         private void OnPointerEnter(PointerEnterEvent evt)
         {
@@ -49,7 +48,7 @@ namespace ItemCombining.Editor.WindowElements
             if (_combinable.Editor_Icon != null)
                 return _combinable.Editor_Icon;
             
-            return AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Plugins/Fixer33/ItemCombining/Editor/Textures/ic_default_item.png");
+            return EditorUtility.LoadAsset<Texture2D>("Textures/ic_default_item.png");
         }
     }
 }

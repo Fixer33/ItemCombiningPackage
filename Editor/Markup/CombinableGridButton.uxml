@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Plugins/Fixer33/ItemCombining/Resources/GridButton.uss?fileID=7433441132597879392&amp;guid=bd7cc6c819e6ac2448655c71234e39d7&amp;type=3#GridButton" />
+    <ui:VisualElement name="grid-btn__background" class="grid-btn__background" style="flex-grow: 1;">
+        <ui:VisualElement name="grid-btn__image" style="flex-grow: 1;" />
+        <ui:Label text="Label" name="grid-btn__text" />
+        <ui:Button text="X" name="combinable-grid-btn__remove-btn" style="position: absolute; height: 20px; width: 20px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; top: 0; right: 0; background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); font-size: 16px; color: rgb(183, 0, 0);" />
+    </ui:VisualElement>
+</ui:UXML>

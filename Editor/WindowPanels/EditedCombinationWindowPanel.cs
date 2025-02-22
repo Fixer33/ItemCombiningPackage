@@ -34,7 +34,7 @@ namespace ItemCombining.Editor.WindowPanels
             
             _saveBtn.clicked += SaveBtnClicked;
 
-            _addIcon = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Plugins/Fixer33/ItemCombining/Editor/Textures/ic_add.png");
+            _addIcon = EditorUtility.LoadAsset<Texture2D>("Textures/ic_add.png");
 
             _objectPicker.visible = false;
             _applyObjPickBtn.clicked += ApplyObjPickBtnClicked;

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Plugins/Fixer33/ItemCombining/Resources/ScrollViewCombinableRecord.uss?fileID=7433441132597879392&amp;guid=0415d02f26923bf49a19548eb17f28ee&amp;type=3#ScrollViewCombinableRecord" />
+    <ui:VisualElement name="combinable-record__background" class="combinable-record__background">
+        <ui:Label text="Label" name="combinable-record__item-name" />
+        <ui:Button text="View usages" name="combinable-record__usage-button" class="combinable-record__button" />
+        <ui:Button text="Delete" name="combinable-record__delete-button" class="combinable-record__button" />
+    </ui:VisualElement>
+    <ui:VisualElement name="combinable-record__icon-holder" />
+</ui:UXML>

@@ -25,7 +25,7 @@ namespace ItemCombining.Editor.WindowElements
                 visualTree.CloneTree(this);
             }
             
-            var styleSheet = Resources.Load<StyleSheet>("GridButton");
+            var styleSheet = EditorUtility.LoadAsset<StyleSheet>("Styles/GridButton.uss");
             if (styleSheet != null)
             {
                 this.styleSheets.Add(styleSheet);
@@ -42,7 +42,7 @@ namespace ItemCombining.Editor.WindowElements
             SetText(text);
         }
 
-        protected virtual VisualTreeAsset GetTemplateScheme() => Resources.Load<VisualTreeAsset>("GridButton");
+        protected virtual VisualTreeAsset GetTemplateScheme() => EditorUtility.LoadAsset<VisualTreeAsset>("Markup/GridButton.uxml");
 
         private void OnClick(ClickEvent evt)
         {

@@ -35,14 +35,14 @@ namespace ItemCombining.Editor
         private void CreateGUI()
         {
             // var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/Editor/MyWindow.uxml");
-            var visualTree = Resources.Load<VisualTreeAsset>("CombinationDictionaryWindow");
+            var visualTree = EditorUtility.LoadAsset<VisualTreeAsset>("Markup/CombinationDictionaryWindow.uxml");
             if (visualTree != null)
             {
                 VisualElement root = rootVisualElement;
                 visualTree.CloneTree(root);
             }
             
-            var styleSheet = Resources.Load<StyleSheet>("CombinationDictionaryWindow");
+            var styleSheet = EditorUtility.LoadAsset<StyleSheet>("Styles/CombinationDictionaryWindow.uss");
             if (styleSheet != null)
             {
                 rootVisualElement.styleSheets.Add(styleSheet);

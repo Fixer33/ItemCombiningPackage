@@ -1,0 +1,91 @@
+:root {
+    --main-height: 30px;
+    --texture-size: 60px;
+    justify-content: center;
+    height: var(--texture-size);
+}
+
+:root:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#combinable-record__icon-holder {
+    width: var(--texture-size);
+    height: var(--texture-size);
+    position: absolute;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+}
+
+#combinable-record__background {
+    border-top-left-radius: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    margin-top: 0;
+    height: var(--main-height);
+    margin-right: 0;
+    margin-left: var(--texture-size);
+}
+
+#combinable-record__item-name {
+    -unity-text-align: middle-left;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    position: absolute;
+    align-self: flex-start;
+    left: 0;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.combinable-record__button {
+    height: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 1px;
+    padding-right: 3px;
+    padding-bottom: 1px;
+    padding-left: 3px;
+    transition-duration: 0.1s;
+    transition-property: all;
+}
+
+.combinable-record__button:hover {
+    scale: 0.95 0.9;
+}
+
+#combinable-record__delete-button:hover {
+    background-color: rgb(255, 93, 93);
+}
+
+Label {
+    color: rgb(255, 255, 255);
+}

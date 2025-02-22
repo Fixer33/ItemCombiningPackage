@@ -1,0 +1,26 @@
+.grid-btn__background {
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 100px;
+    height: 120px;
+}
+
+.grid-btn__background #grid-btn__text {
+    height: 20px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.grid-btn__background #grid-btn__image {
+    -unity-background-scale-mode: scale-to-fit;
+}

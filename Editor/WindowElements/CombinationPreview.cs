@@ -1,6 +1,5 @@
 using System;
 using System.Text;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ItemCombining.Editor.WindowElements
@@ -21,13 +20,13 @@ namespace ItemCombining.Editor.WindowElements
             _combination = combination;
             _editClicked = editClicked;
             
-            var visualTree = Resources.Load<VisualTreeAsset>("CombinationPreview");
+            var visualTree = EditorUtility.LoadAsset<VisualTreeAsset>("Markup/CombinationPreview.uxml");
             if (visualTree != null)
             {
                 visualTree.CloneTree(this);
             }
             
-            var styleSheet = Resources.Load<StyleSheet>("CombinationPreview");
+            var styleSheet = EditorUtility.LoadAsset<StyleSheet>("Styles/CombinationPreview.uss");
             if (styleSheet != null)
             {
                 this.styleSheets.Add(styleSheet);

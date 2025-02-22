@@ -1,0 +1,37 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Plugins/Fixer33/ItemCombining/Resources/CombinationDictionaryWindow.uss?fileID=7433441132597879392&amp;guid=764df9132c8bf294c8b0175fdd71968e&amp;type=3#CombinationDictionaryWindow" />
+    <engine:VisualElement name="Main" class="panel" style="flex-grow: 1; position: absolute; width: 100%; height: 100%;">
+        <engine:TabView class="mainTabView" style="flex-grow: 1; flex-direction: column;">
+            <engine:Tab label="Components" name="ComponentsTab" style="flex-grow: 1; width: 100%; height: 100%;">
+                <engine:ScrollView name="ComponentsScrollView" class="mainTabScrollView" />
+                <engine:Button text="Add component" name="AddComponentBtn" class="mainTabAddObjectButton hoverableBtn" />
+            </engine:Tab>
+            <engine:Tab label="Results" name="ResultsTab" style="flex-grow: 1;">
+                <engine:ScrollView name="ResultsScrollView" class="mainTabScrollView" />
+                <engine:Button text="Add result" name="AddResultBtn" class="mainTabAddObjectButton hoverableBtn" />
+            </engine:Tab>
+        </engine:TabView>
+    </engine:VisualElement>
+    <engine:VisualElement name="CaptureObjectPanel" class="captureObjectPanel panel">
+        <engine:Label text="Label" name="CaptureObjectHeader" />
+        <engine:Button text="Add captured object" name="AddCapturedObjectButton" class="hoverableBtn" />
+        <engine:Button text="Cancel capturing" name="CancelObjectCaptureBtn" class="hoverableBtn" style="height: 23px; width: 256px; background-color: rgb(128, 0, 0);" />
+    </engine:VisualElement>
+    <engine:VisualElement name="UsagesPanel" class="panel usagesPanel" style="flex-grow: 1;">
+        <engine:ScrollView name="usages-panel__records-holder" />
+        <engine:Button text="Create" name="usages-panel__create-btn" class="hoverableBtn" />
+        <engine:Button text="Back" name="usages-panel__back-btn" class="hoverableBtn" />
+    </engine:VisualElement>
+    <engine:VisualElement name="EditedCombinationPanel" class="panel editedCombinationPanel" style="flex-grow: 1;">
+        <engine:ScrollView name="editor-combination-panel__components-holder" />
+        <engine:Label text="||&#10;V" name="editor-combination-panel__divider" />
+        <engine:ScrollView name="editor-combination-panel__results-holder" />
+        <engine:Button text="Save" name="editor-combination-panel__save-btn" class="hoverableBtn" />
+        <engine:Button text="Back" name="editor-combination-panel__back-btn" class="hoverableBtn" />
+        <engine:VisualElement name="editor-combination-panel__object-picker" class="editedCombinationPanelObjectPicker" style="flex-grow: 1;">
+            <engine:DropdownField name="ecp_picker_dropdown" />
+            <engine:Button text="Apply" name="ecp_picker_apply-btn" class="hoverableBtn" />
+            <engine:Button text="Cancel" name="ecp_picker_cancel-btn" class="hoverableBtn" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Plugins/Fixer33/ItemCombining/Resources/CombinationPreview.uss?fileID=7433441132597879392&amp;guid=d8dc00a8e828f2f4fbab856a05f7c0fd&amp;type=3#CombinationPreview" />
+    <ui:VisualElement name="combination-preview__background" class="combination-preview__background" style="flex-grow: 1;">
+        <ui:VisualElement name="combination-preview__label-holder" style="flex-grow: 1;">
+            <ui:Label text="Label" name="combination-preview__components-label" />
+            <ui:VisualElement name="combination-preview__divider" style="flex-grow: 1;" />
+            <ui:Label text="Label" name="combination-preview__results-label" />
+        </ui:VisualElement>
+        <ui:Button text="Edit" name="combination-preview__edit-btn" />
+    </ui:VisualElement>
+</ui:UXML>
