@@ -1,6 +1,6 @@
 {
     "name": "com.fixer33.item-combining.Editor.Tests",
-    "rootNamespace": "ItemCombining.EditorTests",
+    "rootNamespace": "ItemCombining.Editor.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
