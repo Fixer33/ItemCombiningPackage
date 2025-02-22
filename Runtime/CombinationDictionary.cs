@@ -5,9 +5,15 @@ using UnityEngine;
 
 namespace ItemCombining
 {
+    /// <summary>
+    /// Dictionary that stores all valid combinations
+    /// </summary>
     [CreateAssetMenu(fileName = "Combination dictionary", menuName = "Data/Combination dictionary", order = 0)]
     public partial class CombinationDictionary : ScriptableObject
     {
+        /// <summary>
+        /// Indicates whether the dictionary requires exact order of component in it's combinations
+        /// </summary>
         public bool RequireCorrectSequence => _requireCorrectSequence;
 
         [SerializeField] private bool _requireCorrectSequence;
@@ -19,6 +25,12 @@ namespace ItemCombining
             return _objects.Except(new[] { except }).OfType<T>().ToArray();
         }
         
+        /// <summary>
+        /// Get result for combination of the elements
+        /// </summary>
+        /// <param name="components">Components</param>
+        /// <returns>NULL if no combination found. Array of all results for the combination</returns>
+        /// <exception cref="ArgumentException">Thrown if array is empty or null</exception>
         public ICombinableResult[] Get(params ICombinableComponent[] components)
         {
             if (components is not { Length: > 0 })
