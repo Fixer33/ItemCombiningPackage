@@ -1,0 +1,17 @@
+{
+  "name": "com.fixer33.item-combining",
+  "version": "1.0.0",
+  "displayName": "Item Combining",
+  "description": "Package represents simple tool for combining different items that are represented by Scriptable Objects into other Scriptable Objects",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.unity.test-framework": "1.4.6"
+  },
+  "author": {
+    "name": "Fixer33",
+    "email": "fsfixer33@gmail.com",
+    "url": "https://github.com/Fixer33"
+  },
+  "samples": [
+  ]
+}
