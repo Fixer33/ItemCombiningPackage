@@ -120,6 +120,21 @@ namespace ItemCombining.Editor.WindowPanels
             var objects = Dictionary.GetObjects<ScriptableObject>().Except(pickedObjectsInCategory)
                 .Where(i => isComponent ? i is ICombinableComponent : i is ICombinableResult);
             
+            if (isComponent)
+            {
+                if (Dictionary.PossibleInputTypes is { Length: > 0 })
+                {
+                    objects = objects.Where(i => Dictionary.PossibleInputTypes.Any(ii => ii.Get() == i.GetType()));
+                }
+            }
+            else
+            {
+                if (Dictionary.PossibleOutputTypes is { Length: > 0 })
+                {
+                    objects = objects.Where(i => Dictionary.PossibleOutputTypes.Any(ii => ii.Get() == i.GetType()));
+                }
+            }
+            
             _objectsDropdown.choices = objects.Select(i => i.name).ToList();
             _objectsDropdown.index = -1;
             _objectsDropdown.value = "--Pick object--";

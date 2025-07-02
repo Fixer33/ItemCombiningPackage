@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Utilities;
 using UnityEngine;
 
 namespace ItemCombining
@@ -16,9 +17,14 @@ namespace ItemCombining
         /// </summary>
         public bool RequireCorrectSequence => _requireCorrectSequence;
 
+        public TypeReference<ICombinableComponent>[] PossibleInputTypes => _possibleInputTypes;
+        public TypeReference<ICombinableResult>[] PossibleOutputTypes => _possibleOutputTypes;
+
         [SerializeField] private bool _requireCorrectSequence;
         [SerializeField] private List<ScriptableObject> _objects = new();
         [SerializeField] private List<SerializedCombinationData> _combinations = new();
+        [SerializeField] private TypeReference<ICombinableComponent>[] _possibleInputTypes = Array.Empty<TypeReference<ICombinableComponent>>();
+        [SerializeField] private TypeReference<ICombinableResult>[] _possibleOutputTypes = Array.Empty<TypeReference<ICombinableResult>>();
         
         public T[] GetObjects<T>(T except = null) where T : ScriptableObject
         {

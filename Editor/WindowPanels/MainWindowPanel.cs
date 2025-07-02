@@ -35,12 +35,48 @@ namespace ItemCombining.Editor.WindowPanels
             var objects = Dictionary.GetObjects<ScriptableObject>(null);
             foreach (var scriptableObject in objects)
             {
+                var combinableType = scriptableObject.GetType();
                 if (scriptableObject is ICombinableComponent component)
-                    _componentsScrollView.Add(new ScrollViewCombinableRecord(component,
-                        obj => UsagesClicked(obj, CombinationDictionary.CombinationBinding.Component), DeleteClicked));
+                {
+                    bool isPossibleInputType = true;
+                    if (Dictionary.PossibleInputTypes is { Length: > 0 })
+                    {
+                        isPossibleInputType = false;
+                        foreach (var dictionaryPossibleInputType in Dictionary.PossibleInputTypes)
+                        {
+                            if (combinableType != dictionaryPossibleInputType.Get())
+                                continue;
+
+                            isPossibleInputType = true;
+                            break;
+                        }
+                        
+                    }
+                    
+                    if (isPossibleInputType)
+                        _componentsScrollView.Add(new ScrollViewCombinableRecord(component,
+                            obj => UsagesClicked(obj, CombinationDictionary.CombinationBinding.Component), DeleteClicked));
+                }
                 if (scriptableObject is ICombinableResult result)
-                    _resultsScrollView.Add(new ScrollViewCombinableRecord(result,
-                        obj => UsagesClicked(obj, CombinationDictionary.CombinationBinding.Result), DeleteClicked));
+                {
+                    bool isPossibleOutputType = true;
+                    if (Dictionary.PossibleOutputTypes is { Length: > 0 })
+                    {
+                        isPossibleOutputType = false;
+                        foreach (var dictionaryPossibleOutputType in Dictionary.PossibleOutputTypes)
+                        {
+                            if (combinableType != dictionaryPossibleOutputType.Get())
+                                continue;
+
+                            isPossibleOutputType = true;
+                            break;
+                        }
+                    }
+                    
+                    if (isPossibleOutputType)
+                        _resultsScrollView.Add(new ScrollViewCombinableRecord(result,
+                            obj => UsagesClicked(obj, CombinationDictionary.CombinationBinding.Result), DeleteClicked));
+                }
             }
         }
 

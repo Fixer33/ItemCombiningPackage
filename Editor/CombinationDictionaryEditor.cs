@@ -6,8 +6,19 @@ namespace ItemCombining.Editor
     [CustomEditor(typeof(CombinationDictionary))]
     public class CombinationDictionaryEditor : UnityEditor.Editor
     {
+        private SerializedProperty _inputTypesProp;
+        private SerializedProperty _outputTypesProp;
+
+        private void OnEnable()
+        {
+            _inputTypesProp = serializedObject.FindProperty("_possibleInputTypes");
+            _outputTypesProp = serializedObject.FindProperty("_possibleOutputTypes");
+        }
+        
         public override void OnInspectorGUI()
         {
+            serializedObject.Update();
+            
             if (target is not CombinationDictionary dictionary)
                 return;
 
@@ -23,8 +34,12 @@ namespace ItemCombining.Editor
                 GUILayout.Label($"Requires exact sequence: {dictionary.RequireCorrectSequence}. To edit this property dictionary must be empty");
             }
             
+            EditorGUILayout.PropertyField(_inputTypesProp, new GUIContent("Possible Input Types"), true);
+            EditorGUILayout.PropertyField(_outputTypesProp, new GUIContent("Possible Output Types"), true);
+            
             if (GUILayout.Button("Open editor"))
             {
+                dictionary.Editor_Validate();
                 CombinationDictionaryWindow.ShowWindow(dictionary);
             }
 
@@ -40,6 +55,8 @@ namespace ItemCombining.Editor
                 dictionary.Editor_ClearEverything();
             }
             GUI.color = defaultColor;
+            
+            serializedObject.ApplyModifiedProperties();
         }
     }
 }

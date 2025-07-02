@@ -1,7 +1,9 @@
 {
     "name": "com.fixer33.item-combining",
     "rootNamespace": "ItemCombining",
-    "references": [],
+    "references": [
+        "GUID:8cc5332f2857d5844834804085116054"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

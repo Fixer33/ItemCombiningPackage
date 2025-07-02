@@ -41,11 +41,49 @@ namespace ItemCombining.Editor.WindowPanels
         {
             if (Selection.activeObject is ICombinable combinable)
             {
-                if ((_binding & CombinationDictionary.CombinationBinding.Result) != 0 && combinable is not ICombinableResult)
-                    return;
+                var combinableType = combinable.GetType();
                 
-                if ((_binding & CombinationDictionary.CombinationBinding.Component) != 0 && combinable is not ICombinableComponent)
-                    return;
+                if ((_binding & CombinationDictionary.CombinationBinding.Result) != 0)
+                {
+                    if (combinable is not ICombinableResult)
+                        return;
+
+                    if (Dictionary.PossibleOutputTypes is { Length: > 0 })
+                    {
+                        bool isPossibleOutputType = false;
+                        foreach (var dictionaryPossibleOutputType in Dictionary.PossibleOutputTypes)
+                        {
+                            if (combinableType != dictionaryPossibleOutputType.Get())
+                                continue;
+
+                            isPossibleOutputType = true;
+                            break;
+                        }
+                        if (isPossibleOutputType == false)
+                            return;
+                    }
+                }
+
+                if ((_binding & CombinationDictionary.CombinationBinding.Component) != 0)
+                {
+                    if (combinable is not ICombinableComponent)
+                        return;
+                    
+                    if (Dictionary.PossibleInputTypes is { Length: > 0 })
+                    {
+                        bool isPossibleInputType = false;
+                        foreach (var dictionaryPossibleInputType in Dictionary.PossibleInputTypes)
+                        {
+                            if (combinableType != dictionaryPossibleInputType.Get())
+                                continue;
+
+                            isPossibleInputType = true;
+                            break;
+                        }
+                        if (isPossibleInputType == false)
+                            return;
+                    }
+                }
                 
                 if (_lastSelectedObj == combinable)
                     return;

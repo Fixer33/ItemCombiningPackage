@@ -2,7 +2,8 @@
     "name": "com.fixer33.item-combining.Editor",
     "rootNamespace": "ItemCombining.Editor",
     "references": [
-        "com.fixer33.item-combining"
+        "com.fixer33.item-combining",
+        "com.fixer33.core"
     ],
     "includePlatforms": [
         "Editor"
