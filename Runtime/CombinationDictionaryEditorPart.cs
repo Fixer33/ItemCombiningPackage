@@ -72,12 +72,14 @@ namespace ItemCombining
                     var combination = _combinations[i];
                 
                     var buf = combination.Results.ToList();
-                    isModified = isModified || buf.OrderByDescending(ii => ii.name).Count() != combination.Results.Length;
-                    combination.Results = buf.ToArray();
+                    var sortedResults = buf.OrderByDescending(ii => ii is ICombinable c ? c.Id : ii.name).ToArray();
+                    isModified = isModified || sortedResults.SequenceEqual(combination.Results) == false;
+                    combination.Results = sortedResults;
 
                     buf = combination.Components.ToList();
-                    isModified = isModified || buf.OrderByDescending(ii => ii.name).Count() != combination.Components.Length;
-                    combination.Components = buf.ToArray();
+                    var sortedComponents = buf.OrderByDescending(ii => ii is ICombinable c ? c.Id : ii.name).ToArray();
+                    isModified = isModified || sortedComponents.SequenceEqual(combination.Components) == false;
+                    combination.Components = sortedComponents;
                 
                     _combinations[i] = combination;
                 }
