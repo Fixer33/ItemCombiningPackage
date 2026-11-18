@@ -13,11 +13,13 @@
         </engine:TabView>
     </engine:VisualElement>
     <engine:VisualElement name="CaptureObjectPanel" class="captureObjectPanel panel">
+        <engine:Label text="Invalid" name="CaptureObjectBadge" class="captureObjectBadge" />
         <engine:Label text="Label" name="CaptureObjectHeader" />
         <engine:Button text="Add captured object" name="AddCapturedObjectButton" class="hoverableBtn" />
-        <engine:Button text="Cancel capturing" name="CancelObjectCaptureBtn" class="hoverableBtn" style="height: 23px; width: 256px; background-color: rgb(128, 0, 0);" />
+        <engine:Button text="Cancel capturing" name="CancelObjectCaptureBtn" class="hoverableBtn" />
     </engine:VisualElement>
     <engine:VisualElement name="UsagesPanel" class="panel usagesPanel" style="flex-grow: 1;">
+        <engine:Label text="Usages" name="usages-panel__heading" class="usagesPanelHeading" />
         <engine:ScrollView name="usages-panel__records-holder" />
         <engine:Button text="Create" name="usages-panel__create-btn" class="hoverableBtn" />
         <engine:Button text="Back" name="usages-panel__back-btn" class="hoverableBtn" />

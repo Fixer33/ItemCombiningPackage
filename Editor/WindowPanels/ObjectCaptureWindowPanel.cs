@@ -15,6 +15,7 @@ namespace ItemCombining.Editor.WindowPanels
         [ElementQuery(CAPTURE_OBJECT_ADD_OBJECT_BTN_NAME)] private Button _addBtn;
         [ElementQuery(CAPTURE_OBJECT_CANCEL_BTN_NAME)] private Button _cancelBtn;
         [ElementQuery(CAPTURE_OBJECT_HEADER_NAME)] private Label _header;
+        [ElementQuery("CaptureObjectBadge")] private Label _badge;
 
         private CombinationDictionary.CombinationBinding _binding;
         private ICombinable _lastSelectedObj;
@@ -35,6 +36,8 @@ namespace ItemCombining.Editor.WindowPanels
         protected override void OnShown(object[] args)
         {
             _binding = (CombinationDictionary.CombinationBinding)args[0];
+            _lastSelectedObj = null;
+            _addBtn.SetEnabled(false);
         }
 
         protected override void OnUpdate()
@@ -90,6 +93,8 @@ namespace ItemCombining.Editor.WindowPanels
 
                 _lastSelectedObj = combinable;
                 Panel.AddToClassList(CAPTURE_OBJECT_PANEL_VALID_CAPTURE_CLASS);
+                _addBtn.SetEnabled(true);
+                _badge.text = "Valid";
                 if (combinable is ScriptableObject so)
                     _header.text = $"Ready to capture object:\n {so.name}";
                 return;
@@ -97,6 +102,8 @@ namespace ItemCombining.Editor.WindowPanels
 
             _lastSelectedObj = null;
             Panel.RemoveFromClassList(CAPTURE_OBJECT_PANEL_VALID_CAPTURE_CLASS);
+            _addBtn.SetEnabled(false);
+            _badge.text = "Invalid";
             _header.text = $"No valid object to capture";
         }
     }

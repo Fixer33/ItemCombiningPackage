@@ -1,56 +1,50 @@
 .combination-preview__background {
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+    background-color: var(--bg-raised);
+    border-color: var(--border-subtle);
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
     flex-direction: row;
+    align-items: center;
+    transition-duration: 0.1s;
+}
+
+.combination-preview__background:hover {
+    background-color: var(--bg-hover);
 }
 
 .combination-preview__background #combination-preview__label-holder {
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .combination-preview__background #combination-preview__edit-btn {
-    margin-top: 7px;
-    margin-right: 0;
-    margin-bottom: 7px;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 3px;
-    padding-bottom: 0;
-    padding-left: 3px;
-}
-
-.combination-preview__background #combination-preview__edit-btn:hover {
-    scale: 0.9 0.9;
+    margin: 0 0 0 10px;
+    padding: 4px 12px;
 }
 
 .combination-preview__background Label {
-    height: 49%;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
+    margin: 0;
+    padding: 0;
     -unity-text-align: middle-left;
-    padding-left: 5px;
+    white-space: normal;
+}
+
+.combination-preview__background #combination-preview__components-label {
+    font-size: 14px;
+    -unity-font-style: bold;
+    color: var(--text-primary);
+}
+
+.combination-preview__background #combination-preview__results-label {
+    font-size: 12px;
+    color: var(--text-muted);
 }
 
 .combination-preview__background #combination-preview__divider {
-    height: 2%;
-    background-color: white;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+    height: 1px;
+    flex-grow: 0;
+    background-color: var(--border-subtle);
+    margin: 6px 0;
 }

@@ -1,64 +1,113 @@
+:root {
+  --bg-base:#0F1115; --bg-surface:#171A21; --bg-raised:#1E222B; --bg-overlay:#272C37; --bg-hover:#2E3441;
+  --border-subtle:#262B35; --border-default:#343B49; --border-strong:#475066;
+  --text-primary:#E8ECF3; --text-secondary:#A3ACBD; --text-muted:#6F7889; --text-on-accent:#FFFFFF;
+  --accent:#3B82F6; --accent-hover:#5B9BFF; --accent-pressed:#2B6AD8; --accent-subtle:#1B2A47; --accent-border:#2F5FB3;
+  --success:#34D399; --success-subtle:#10281F;
+  --warning:#FBBF24; --warning-subtle:#2E2410;
+  --danger:#F87171; --danger-subtle:#2E1517;
+  --info:#60A5FA; --info-subtle:#13243B;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+  background-color: var(--bg-surface);
+}
+
 .panel {
     position: absolute;
     width: 100%;
     height: 100%;
-}
-
-.mainTabView {
-}
-
-Button {
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgb(255, 255, 255);
-    margin-right: 1px;
-    margin-left: 1px;
+    background-color: var(--bg-surface);
+    padding: 16px;
 }
 
 Label {
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+/* ---------- Buttons (secondary by default) ---------- */
+Button {
+    background-color: var(--bg-raised);
+    color: var(--text-primary);
+    border-color: var(--border-default);
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 8px 16px;
+    margin: 0;
+    -unity-font-style: bold;
+    transition-duration: 0.1s;
+    transition-property: background-color, border-color, color;
+}
+
+Button:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--border-strong);
+}
+
+Button:active {
+    background-color: var(--bg-overlay);
+}
+
+Button:disabled {
+    background-color: var(--bg-surface);
+    border-color: var(--border-subtle);
+    color: var(--text-muted);
 }
 
 .hoverableBtn {
 }
 
-.hoverableBtn:hover {
-    scale: 0.99 0.95;
-}
-
-#AddComponentBtn:hover {
-}
-
-#AddResultBtn:hover {
+/* ---------- Main panel / tabs ---------- */
+.mainTabView {
 }
 
 .mainTabView #unity-tab-view__content-container {
     flex-grow: 1;
 }
 
-.mainTabView #unity-tab__header {
-    width: 50%;
+.mainTabView .unity-tab-view__header-container {
+    flex-direction: row;
+    background-color: transparent;
+    border-width: 0;
+    padding: 0 0 12px 0;
+}
+
+.mainTabView .unity-tab__header {
+    flex-grow: 0;
+    width: auto;
+    margin: 0 4px 0 0;
+    padding: 8px 16px;
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 8px;
     align-content: center;
+}
+
+.mainTabView .unity-tab__header:hover {
+    background-color: var(--bg-hover);
+}
+
+.mainTabView .unity-tab__header-underline {
+    display: none;
+}
+
+.mainTabView .unity-tab__header--selected {
+    background-color: var(--accent-subtle);
+}
+
+.mainTabView .unity-tab__header-label {
+    -unity-text-align: middle-center;
+    color: var(--text-secondary);
+    -unity-font-style: bold;
+    font-size: 14px;
+}
+
+.mainTabView .unity-tab__header--selected .unity-tab__header-label {
+    color: var(--accent-hover);
 }
 
 .mainTabView #unity-tab__content-container {
     flex-grow: 1;
-}
-
-.mainTabView #unity-tab__header-label {
-    -unity-text-align: middle-center;
-    width: 100%;
 }
 
 .mainTabScrollView {
@@ -66,49 +115,115 @@ Label {
 }
 
 .mainTabAddObjectButton {
-    height: 23px;
+    height: 36px;
+    margin-top: 12px;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
 }
 
+.mainTabAddObjectButton:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.mainTabAddObjectButton:active {
+    background-color: var(--accent-pressed);
+    border-color: var(--accent-pressed);
+}
+
+/* ---------- Capture panel ---------- */
 .captureObjectPanel {
     flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(26, 0, 0);
-    transition-duration: 0.1s;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.captureObjectBadge {
+    align-self: flex-start;
+    font-size: 12px;
+    -unity-font-style: bold;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin: 0 0 16px 0;
+    color: var(--danger);
+    background-color: var(--danger-subtle);
 }
 
 .captureObjectPanel #CaptureObjectHeader {
-    font-size: 24px;
-    -unity-text-align: upper-center;
+    font-size: 14px;
+    color: var(--text-secondary);
+    -unity-text-align: upper-left;
+    white-space: normal;
+    margin: 0 0 16px 0;
 }
 
 .captureObjectPanel #AddCapturedObjectButton {
-    display: none;
+    height: 36px;
+    margin: 0 0 8px 0;
 }
 
-.captureObjectPanelValidTarget {
-    background-color: rgb(8, 36, 0);
+.captureObjectPanel #CancelObjectCaptureBtn {
+    height: 36px;
+}
+
+.captureObjectPanelValidTarget .captureObjectBadge {
+    color: var(--success);
+    background-color: var(--success-subtle);
 }
 
 .captureObjectPanelValidTarget #CaptureObjectHeader {
+    color: var(--text-primary);
 }
 
 .captureObjectPanelValidTarget #AddCapturedObjectButton {
-    display: flex;
-    width: 265px;
-    height: 33px;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
 }
 
+.captureObjectPanelValidTarget #AddCapturedObjectButton:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.captureObjectPanelValidTarget #AddCapturedObjectButton:active {
+    background-color: var(--accent-pressed);
+    border-color: var(--accent-pressed);
+}
+
+/* ---------- Usages panel ---------- */
 .usagesPanel {
 }
 
-.usagesPanel Button {
+.usagesPanelHeading {
+    font-size: 16px;
+    -unity-font-style: bold;
+    margin: 0 0 12px 0;
 }
 
 .usagesPanel ScrollView {
-    height: 100%;
+    flex-grow: 1;
+    height: auto;
 }
 
+.usagesPanel Button {
+    height: 36px;
+    margin-top: 8px;
+}
+
+.usagesPanel #usages-panel__create-btn {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
+}
+
+.usagesPanel #usages-panel__create-btn:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+/* ---------- Edited combination panel ---------- */
 .editedCombinationPanel {
 }
 
@@ -118,99 +233,91 @@ Label {
 }
 
 .editedCombinationPanel CombinableGridButton {
-    margin-right: 5px;
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 .editedCombinationPanel ScrollView {
     height: 46%;
+    background-color: var(--bg-base);
+    border-color: var(--border-subtle);
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 8px;
 }
 
 .editedCombinationPanel Button {
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 3px;
-    padding-right: 0;
-    padding-bottom: 3px;
-    padding-left: 0;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-left-color: rgba(255, 255, 255, 0.87);
-    border-right-color: rgba(255, 255, 255, 0.87);
-    border-top-color: rgba(255, 255, 255, 0.87);
-    border-bottom-color: rgba(255, 255, 255, 0.87);
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0);
+    height: 36px;
+    margin-top: 8px;
+}
+
+.editedCombinationPanel #editor-combination-panel__save-btn {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
+}
+
+.editedCombinationPanel #editor-combination-panel__save-btn:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 .editedCombinationPanel #editor-combination-panel__divider {
-    height: 44px;
+    height: 36px;
     -unity-text-align: middle-center;
-    font-size: 16px;
-    color: rgb(255, 0, 252);
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 3px;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    border-left-color: rgba(0, 0, 0, 0);
-    border-right-color: rgba(0, 0, 0, 0);
-    border-top-color: rgba(0, 0, 0, 0.5);
-    border-bottom-color: rgba(0, 0, 0, 0.5);
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+    padding: 0;
+    border-width: 0;
 }
 
 .editedCombinationPanelObjectPicker {
     position: absolute;
+    left: 0;
+    top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(91, 91, 91, 0.89);
+    background-color: var(--bg-surface);
+    padding: 16px;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
 }
 
 .editedCombinationPanelObjectPicker DropdownField {
-    width: 70%;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+    width: auto;
+    margin: 0 0 8px 0;
+    padding: 0;
 }
 
 #ecp_picker_dropdown > VisualElement {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    border-color: var(--border-default);
+    border-width: 1px;
+    background-color: var(--bg-base);
+}
+
+#ecp_picker_dropdown:focus > VisualElement {
+    border-color: var(--accent);
 }
 
 #ecp_picker_dropdown > VisualElement > VisualElement {
-    -unity-background-image-tint-color: rgb(255, 255, 255);
+    -unity-background-image-tint-color: var(--text-secondary);
 }
 
 .editedCombinationPanelObjectPicker Button {
-    width: 35%;
-    margin-top: 5px;
+    width: auto;
+    height: 36px;
+    margin-top: 8px;
+}
+
+.editedCombinationPanelObjectPicker #ecp_picker_apply-btn {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-on-accent);
+}
+
+.editedCombinationPanelObjectPicker #ecp_picker_apply-btn:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
 }

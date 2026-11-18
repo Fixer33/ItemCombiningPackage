@@ -1,26 +1,51 @@
 .grid-btn__background {
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    width: 100px;
-    height: 120px;
+    background-color: var(--bg-raised);
+    border-color: var(--accent-border);
+    border-width: 1px;
+    border-radius: 10px;
+    width: 88px;
+    height: 88px;
+    padding: 4px;
+    overflow: hidden;
+    transition-duration: 0.1s;
+}
+
+.grid-btn__background:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--accent);
 }
 
 .grid-btn__background #grid-btn__text {
-    height: 20px;
+    height: 16px;
+    font-size: 12px;
     -unity-text-align: middle-center;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .grid-btn__background #grid-btn__image {
     -unity-background-scale-mode: scale-to-fit;
+}
+
+.combinable-grid-btn__remove-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    border-width: 0;
+    border-radius: 9px;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--danger);
+}
+
+.combinable-grid-btn__remove-btn:hover {
+    background-color: var(--danger-subtle);
+    border-color: var(--danger);
+    border-width: 1px;
 }
