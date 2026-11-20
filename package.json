@@ -1,6 +1,6 @@
 {
   "name": "com.fixer33.item-combining",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "displayName": "Item Combining",
   "description": "Package represents simple tool for combining different items that are represented by Scriptable Objects into other Scriptable Objects",
   "unity": "6000.0",
